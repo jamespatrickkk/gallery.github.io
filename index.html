@@ -24,38 +24,106 @@
         flex: 1 1 auto;
     }
 
-    h2 {
+    h2,
+    h1 {
         color: rgb(21, 21, 87);
+    }
+
+    .full-hero {
+        position: relative;
+        width: 100%;
+        height: 90vh;
+    }
+
+    .full-hero img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 1rem;
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -55%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
     }
 </style>
 
 <body>
-    <div class="container my-5 py-4">
+
+    <div class="container my-4 px-0">
         <div class="row justify-content-center text-center">
-            <div class="col-12 col-md-10 col-lg-8">
-                <h2 class="fw-bold mb-3">Never stop exploring the world</h2>
-                <p class="text fs-5">
-                    I visited a few water destinations in the Philippines, and it offered an unforgettable water
-                    adventure.
-                    The place had crystal-clear blue water, fresh air, and a peaceful atmosphere that made the
-                    trip
-                    truly relaxing. I enjoyed the scenic boat ride, the wide view of the open sea, and the gentle
-                    movement
-                    of the waves. Every moment felt refreshing and brought me closer to nature. It was a simple yet
-                    memorable experience that showed me the natural beauty and charm of the Philippines.
-                </p>
+            <div class="col-12 full-hero my-3 shadow-lg rounded-4 position-relative">
+                <img src="Images/elnido1.jpg">
+
+                <div class="hero-overlay">
+                    <div class="hero-text text-center text-white px-3">
+                        <h1 class="hero-title fw-bold fs-2">Discover the Beauty of the Philippines</h1>
+                        <p class="hero-sub fs-5 fw-light">
+                            From crystal-clear waters to peaceful landscapes, explore destinations that bring you
+                            closer to nature.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="content" class="row mt-4"></div>
-    </div>
+        <div class="container my-5 py-4">
+            <div class="row justify-content-center text-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <h2 class="fw-bold mb-3">Never stop exploring the world</h2>
+                    <p class="text fs-5">
+                        I visited a few water destinations in the Philippines, and it offered an unforgettable water
+                        adventure.
+                        The place had crystal-clear blue water, fresh air, and a peaceful atmosphere that made the
+                        trip
+                        truly relaxing. I enjoyed the scenic boat ride, the wide view of the open sea, and the gentle
+                        movement
+                        of the waves. Every moment felt refreshing and brought me closer to nature. It was a simple yet
+                        memorable experience that showed me the natural beauty and charm of the Philippines.
+                    </p>
+                </div>
+            </div>
 
-    <script src="json.js"></script>
-    <script>
-        var content = document.getElementById("content");
+            <div id="content" class="row mt-4"></div>
+        </div>
 
-        for (var i = 0; i < beaches.length; i++) {
-            content.innerHTML += `
+        <footer>
+            <div class="container text-center">
+                <p>© 2025 James Patrick Orlanes. All Rights Reserved.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="https://www.facebook.com/jamespatrick.orlanes">Facebook</a>
+                    <a href="https://www.instagram.com/jmsptrckz">Instagram</a>
+                    <a href="https://github.com/jamespatrickkk">Github</a>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="json.js"></script>
+        <script>
+            var content = document.getElementById("content");
+
+            for (var i = 0; i < beaches.length; i++) {
+                content.innerHTML += `
                 <div class="col-6 col-md-4 col-lg-3 my-3">
                 <div class="card shadow my-3">
                 <img src="` + beaches[i].img + `" class="card-img-top"` + beaches[i].beach + `">
@@ -66,12 +134,12 @@
                 </div>
                 </div>
                 `;
-        }
-    </script>
+            }
+        </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
